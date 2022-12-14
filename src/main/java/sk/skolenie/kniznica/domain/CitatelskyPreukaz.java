@@ -57,4 +57,8 @@ public class CitatelskyPreukaz implements Serializable {
 		return osoba.getMeno().equals(meno) && osoba.getPriezvisko().equals(priezvisko);
 	}
 
+	public String getCislo() {
+		return cisloPreukazu;
+	}
+
 }
