@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import sk.skolenie.kniznica.application.dto.DTOOsoba;
 import sk.skolenie.kniznica.domain.CitatelskyPreukazRepository;
 import sk.skolenie.kniznica.domain.Kniznica;
-import sk.skolenie.kniznica.domain.KniznicaFactory;
 import sk.skolenie.kniznica.domain.KniznyTitul;
 import sk.skolenie.kniznica.domain.Osoba;
 
@@ -24,8 +23,8 @@ public class KniznicaController {
 	private CitatelskyPreukazRepository citatelskyPreukazRepository;
 
 	public KniznicaController() {
-		// kniznica = new Kniznica( citatelskyPreukazRepository );
-		kniznica = KniznicaFactory.create();
+		kniznica = new Kniznica( citatelskyPreukazRepository );
+		//kniznica = KniznicaFactory.create();
 	}
 
 	@GetMapping(value = "/knihy/{nazovKnihy}")

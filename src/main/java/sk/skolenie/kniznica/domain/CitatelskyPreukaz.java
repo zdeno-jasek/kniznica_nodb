@@ -9,6 +9,21 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 
+/**
+ * JPA anotácia slúži na zápis Java-objektov
+ * do SQL databázy (structured query language).
+ * 
+ * Napríklad 
+ * SELECT * FROM citatelsky_preukaz
+ * vráti zoznam všetkých čitateľských preukazov z DB.
+ * Alebo
+ * INSERT INTO citatelsky_preukaz VALUES ("A", "B", 1)
+ * uloží údaje o čitateľskom preukaze do databázy.
+ *
+ * @Entity - znamená, že táto trieda sa má uložiť do nejakej tabuľky.
+ * @Column - tento atribút ulož ako pole v tabuľke
+ * @Id - jednoznačný identifikátor riadku v tabuľke
+ */
 @Entity
 public class CitatelskyPreukaz implements Serializable {
 	private static final long serialVersionUID = 5199364011508607400L;
