@@ -41,7 +41,7 @@ public class KniznicaController {
 
 	@GetMapping(value = "/all")
 	public @ResponseBody String showAll() {
-		return kniznica.toString() + " - a to je vsetko";
+		return kniznica.toString().replaceAll("\n", "<br>");
 	}
 
 }
