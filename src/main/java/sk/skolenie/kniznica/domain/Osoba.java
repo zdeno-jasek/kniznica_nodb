@@ -2,6 +2,11 @@ package sk.skolenie.kniznica.domain;
 
 import java.io.Serializable;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 /**
  * Trieda je dátová štruktúra, ktorá má navyše aj chovanie (čiže metódy).
  * Príkladom triedy v Jave je BigDecimal. Táto trieda drží hodnotu,
@@ -10,10 +15,13 @@ import java.io.Serializable;
  * 
  * Trieda Osoba je definovaná tak, aby držala informácie o osobe. 
  */
+@Entity
 public class Osoba implements Serializable{
 
 	private static final long serialVersionUID = 3650255950534710171L;
 
+	@Id
+	private long id;
 	/**
 	 * Trieda obsahuje atribúty.
 	 * Atribút vyzerá ako premenná, ale je definovaný na úrovni triedy, nie vo vnútri metódy.
@@ -22,14 +30,17 @@ public class Osoba implements Serializable{
 	 * Obvykle sa pri atribútoch používa slovo "private", čo znamená, že atribút je viditeľný iba vo vnútri triedy.
 	 * Viditeľnosť atribútu je definovaná rovnako ako viditeľnosť metódy.
 	 */
+	@Column
 	private String meno;
 	
 	/**
 	 * Hodnota každého atribútu String je na začiatku "null".
 	 * Znamená to, že do atribútu ešte nebolo nič priradené.
 	 */
+	@Column
 	private String priezvisko;
 
+	@Embedded
 	private Adresa adresa;
 
 	/**

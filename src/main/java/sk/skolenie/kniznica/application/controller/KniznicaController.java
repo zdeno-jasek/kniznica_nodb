@@ -1,5 +1,6 @@
 package sk.skolenie.kniznica.application.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import sk.skolenie.kniznica.application.dto.DTOOsoba;
+import sk.skolenie.kniznica.domain.CitatelskyPreukazRepository;
 import sk.skolenie.kniznica.domain.Kniznica;
-import sk.skolenie.kniznica.domain.KniznicaFactory;
 import sk.skolenie.kniznica.domain.KniznyTitul;
 import sk.skolenie.kniznica.domain.Osoba;
 
@@ -18,9 +19,11 @@ import sk.skolenie.kniznica.domain.Osoba;
 @RequestMapping(value = "/kniznica")
 public class KniznicaController {
 	private Kniznica kniznica;
+	@Autowired
+	private CitatelskyPreukazRepository citatelskyPreukazRepository;
 
 	public KniznicaController() {
-		kniznica = KniznicaFactory.create();
+		kniznica = new Kniznica( citatelskyPreukazRepository );
 	}
 
 	@GetMapping(value = "/knihy/{nazovKnihy}")

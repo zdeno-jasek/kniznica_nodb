@@ -4,17 +4,30 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+
+@Entity
 public class CitatelskyPreukaz implements Serializable {
 	private static final long serialVersionUID = 5199364011508607400L;
 
 	private static int cislovacPreukazov = 1;
 
+	@Id
+	private long id;
+
 	// Modifikátor "final" hovorí, že tento atribút sa nastaví v konštruktore
 	// a už sa nikdy nezmení počas trvania života tohto objektu.
 	// Je dobré vkladať objektom zodpovednosť za konzistenciu a správnosť dát.
+	@Column
 	private String cisloPreukazu;
+	@ManyToOne
 	private Osoba osoba;
+	@Column
 	private LocalDate platnyOd;
+	@Column
 	private LocalDate platnyDo;
 	
 	/**

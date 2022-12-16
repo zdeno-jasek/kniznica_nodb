@@ -12,10 +12,13 @@ public class Kniznica implements Serializable {
 	private final List<KniznyTitul> knizneTituly;
 	private final List<PozickaKnihy> pozicaneKnihy;
 	
-	public Kniznica() {
+	private final CitatelskyPreukazRepository citatelskyPreukazRepository;
+	
+	public Kniznica(CitatelskyPreukazRepository citatelskyPreukazRepository) {
 		citatelskePreukazy = new ArrayList<>();
 		knizneTituly = new ArrayList<>();
 		pozicaneKnihy = new ArrayList<>();
+		this.citatelskyPreukazRepository = citatelskyPreukazRepository;
 	}
 	
 	/**

@@ -15,7 +15,7 @@ public class KniznicaFactory {
 	 * a obsahuje aj vytvorené čitateľské preukazy.
 	 */
 	public static Kniznica create() {
-		Kniznica kniznica = new Kniznica();
+		Kniznica kniznica = new Kniznica( null );
 		
 		vytvorCitatelskePreukazy(kniznica);
 		vytvorKnihy(kniznica);
