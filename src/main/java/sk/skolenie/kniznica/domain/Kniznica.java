@@ -29,6 +29,7 @@ public class Kniznica implements Serializable {
 		CitatelskyPreukaz citatelskyPreukaz = new CitatelskyPreukaz(osoba);
 		// Zaradenie do evidencie čitateľských preukazov
 		citatelskePreukazy.add(citatelskyPreukaz);
+		//citatelskyPreukazRepository.create(citatelskyPreukaz);
 		return citatelskyPreukaz;
 	}
 
